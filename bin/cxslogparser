@@ -1,0 +1,37 @@
+#!/usr/bin/env python
+#
+from sys import argv, exit
+from cxscleaner import cxscleaner
+
+# TODO:
+# Create temp file and use popen to display the list in
+# a less-style view so the user can scroll through the list.
+# Then ask for confirmation to delete the files.
+
+# Create a log object and run everything from here.
+def parser_engine():
+
+    try:
+        script, log = argv
+
+        nl = cxscleaner.ALog(log)
+        files2del = nl.filter_log()
+        
+        for f in files2del:
+            print f
+        
+        print "Do you want to delete those files now? y/n"
+        answer = raw_input("> ")
+        
+        if answer == "y":
+            nl.process_list(files2del)
+
+        else:
+            exit(1)
+    
+    except (ValueError, IOError):
+        print "Usage: %s /path/to/logfile.log" % argv[0]
+
+
+parser_engine()
+
