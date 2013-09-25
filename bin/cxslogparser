@@ -31,6 +31,7 @@ def parser_engine():
     
     except (ValueError, IOError):
         print "Usage: %s /path/to/logfile.log" % argv[0]
+        exit(1)
 
 
 parser_engine()

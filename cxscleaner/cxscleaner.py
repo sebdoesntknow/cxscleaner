@@ -3,12 +3,7 @@ import os
 import logging
 
 # TODO:
-# Define: What is a log?
-#           - Is it a file?
-#           - Is it readable?
-#           - does it exist?
-#           - can we open it? if not, fail and let the user know.
-#           - log everything we do, can be here or in the engine file.
+# try 'with' statment to open logs
 
 # Class to define what a log is.
 class ALog(object):
@@ -33,7 +28,7 @@ class ALog(object):
         log2parse = open(self.logfile_nonparsed, 'r')
         
         for l in log2parse:
-            lf = l.split()[5].strip('\'[]')
+            lf = l.split()[5].strip("'[]")
             if "virus" in l or "exploit" in l:
                 logging.info('FOUND: %s' % lf)
                 self.files2delete.append(lf)
