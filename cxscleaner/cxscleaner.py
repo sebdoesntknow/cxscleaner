@@ -28,7 +28,7 @@ class ALog(object):
         log2parse = open(self.logfile_nonparsed, 'r')
         
         for l in log2parse:
-            lf = l.split()[5].strip("'[]")
+            lf = l.split('\'')[1]
             if "virus" in l or "exploit" in l:
                 logging.info('FOUND: %s' % lf)
                 self.files2delete.append(lf)
