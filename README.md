@@ -3,7 +3,7 @@ cxscleaner
 
 Description:
 
-cxscleaner is a script I wrote to process cxs virus scans on /home/ to safely remove files and symlinks without breaking the system
+cxscleaner is a script to process cxs virus scans on /home/. It will safely remove files and symlinks without breaking the system.
 
 Installing:
 
